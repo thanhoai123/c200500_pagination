@@ -22,11 +22,13 @@ $data = [];
 
     try{ 
 
-        $sql = "SELECT * FROM user WHERE name like :name LIMIT $start , $limit"; 
+        $sql = "SELECT * FROM user WHERE name like :name LIMIT :start , $limit"; 
     
         $stmt = $dbh->prepare($sql); 
     
-        $stmt->bindValue(':name', '%'.$name.'%', PDO::PARAM_STR); 
+        $stmt->bindValue(':name', '%'.$name.'%', PDO::PARAM_STR);
+        $stmt->bindValue(':start', $start, PDO::PARAM_INT);
+        
     
         $stmt->execute(); 
     
