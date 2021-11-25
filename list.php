@@ -110,7 +110,7 @@ $data = [];
 
             for ($x=1; $x <= $pagination ; $x++) { 
 
-                if ($x == $current_page){
+                if ($x == $page){
                     echo '<span>'.$x.'</span> | ';
                 }
                 else{
