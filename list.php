@@ -1,5 +1,5 @@
-﻿<?php
-$limit = 5; 　//ひとつずつページに5列のデータを表示するもの。
+<?php
+$limit = 5;
 require_once("functions.php");
 if($_SERVER['REQUEST_METHOD'] === 'POST'){
     if(isset($_POST["name"])){
@@ -28,7 +28,6 @@ $data = [];
     
         $stmt->bindValue(':name', '%'.$name.'%', PDO::PARAM_STR);
         $stmt->bindValue(':start', $start, PDO::PARAM_INT);
-        
     
         $stmt->execute(); 
     
@@ -97,6 +96,7 @@ $data = [];
         $stmt = $dbh->prepare("SELECT COUNT(*) id FROM user WHERE name like :name"); 
 
         $stmt->bindValue(':name', '%'.$name.'%', PDO::PARAM_STR); 
+        
 
         $stmt->execute(); 
 
